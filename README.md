@@ -14,7 +14,7 @@ A simple and responsive **Todo App** built with **React, Redux Toolkit, and Type
 ✅ Search Todos 🔍  
 ✅ Dark Mode Support 🌙 (Under development)  
 ✅ Local Storage Persistence  
-✅ Fully Responsive UI
+✅ Fully Responsive UI  
 
 ---
 

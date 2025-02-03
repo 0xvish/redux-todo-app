@@ -1,7 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import { reorderTodos } from "../features/todo/todoSlice";
 import { DndProvider } from "react-dnd";
+import { TouchBackend } from "react-dnd-touch-backend";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { MultiBackend, TouchTransition } from "dnd-multi-backend";
 import { useState, useCallback, useEffect } from "react";
 import { Todo } from "../lib/types";
 import TodoItem from "./TodoItem";
@@ -36,8 +38,19 @@ const TodoList = () => {
     return todo.text.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
+  const DND_BACKEND = {
+    backends: [
+      { backend: HTML5Backend },
+      {
+        backend: TouchBackend,
+        preview: true,
+        transition: TouchTransition,
+      },
+    ],
+  };
+
   return (
-    <DndProvider backend={HTML5Backend}>
+    <DndProvider backend={MultiBackend} options={DND_BACKEND}>
       <div className="w-full max-w-md mx-auto mt-4 sm:mt-6 p-4 sm:p-6 bg-white rounded-lg shadow-lg">
         <h1 className="text-xl sm:text-2xl font-bold text-gray-700 mb-3 sm:mb-4 text-center">
           Todos
