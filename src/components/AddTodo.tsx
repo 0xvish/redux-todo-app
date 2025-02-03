@@ -1,11 +1,9 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../features/todo/todoSlice";
-import { ThemeContext } from "../context/ThemeContext";
 
 const AddTodo = () => {
   const [todoText, setTodoText] = useState("");
-  const { theme } = useContext(ThemeContext);
   const dispatch = useDispatch();
 
   const addTodoHandler = (e: { preventDefault: () => void }) => {
@@ -16,25 +14,8 @@ const AddTodo = () => {
   };
 
   return (
-    <div
-      className={`
-        w-full max-w-md mx-auto mt-4 p-4 sm:p-6 
-        bg-white dark:bg-gray-800 
-        rounded-lg 
-        shadow-lg
-        transition-colors
-        duration-300
-      `}
-    >
-      <h1
-        className="
-          text-xl sm:text-2xl 
-          font-bold 
-          text-gray-700 dark:text-gray-200 
-          mb-3 sm:mb-4 
-          text-center
-        "
-      >
+    <div className="w-full max-w-md mx-auto mt-4 sm:mt-6 p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+      <h1 className="text-xl sm:text-2xl font-bold text-gray-700 mb-3 sm:mb-4 text-center">
         Add Todo
       </h1>
       <form
@@ -49,10 +30,7 @@ const AddTodo = () => {
           className="
             w-full px-3 py-2 sm:px-4 sm:py-2
             text-sm sm:text-base
-            border border-gray-300 dark:border-gray-600
-            rounded-lg
-            bg-white dark:bg-gray-700
-            text-gray-900 dark:text-gray-100
+            border border-gray-300 rounded-lg
             focus:outline-none focus:ring-2 focus:ring-blue-500
           "
         />
