@@ -8,12 +8,12 @@ A simple and responsive **Todo App** built with **React, Redux Toolkit, and Type
 
 ## 📦 Features
 
-✅ Add, Edit, Delete Todos
-✅ Drag & Drop to Reorder Todos
-✅ Filter by Status (All, Completed, Pending)
-✅ Search Todos 🔍
-✅ Dark Mode Support 🌙 (Under development)
-✅ Local Storage Persistence
+✅ Add, Edit, Delete Todos  
+✅ Drag & Drop to Reorder Todos  
+✅ Filter by Status (All, Completed, Pending)  
+✅ Search Todos 🔍  
+✅ Dark Mode Support 🌙 (Under development)  
+✅ Local Storage Persistence  
 ✅ Fully Responsive UI
 
 ---
