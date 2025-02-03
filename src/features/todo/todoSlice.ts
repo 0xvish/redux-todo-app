@@ -1,29 +1,66 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = {
-  todos: [{ id: nanoid(), text: "Hello World", completed: false }],
+interface Todo {
+  id: string;
+  text: string;
+  completed: boolean;
+}
+
+interface TodosState {
+  todos: Todo[];
+}
+
+const loadTodos = () => {
+  const savedTodos = localStorage.getItem("todos");
+  return savedTodos ? JSON.parse(savedTodos) : [];
 };
 
-export const todoSlice = createSlice({
-  name: "todo",
+const initialState: TodosState = {
+  todos: loadTodos(),
+};
+
+const todoSlice = createSlice({
+  name: "todos",
   initialState,
   reducers: {
-    addTodo: (state, action) => {
-      const newTodo = { id: nanoid(), text: action.payload, completed: false };
+    addTodo: (state, action: PayloadAction<string>) => {
+      const newTodo = {
+        id: nanoid(),
+        text: action.payload,
+        completed: false,
+      };
       state.todos.push(newTodo);
+      localStorage.setItem("todos", JSON.stringify(state.todos));
     },
-    removeTodo: (state, action) => {
+    removeTodo: (state, action: PayloadAction<string>) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+      localStorage.setItem("todos", JSON.stringify(state.todos));
     },
-    toggleTodo: (state, action) => {
-      const todo = state.todos.find((todo) => todo.id === action.payload);
+    updateTodo: (
+      state,
+      action: PayloadAction<{ id: string; text: string }>
+    ) => {
+      const { id, text } = action.payload;
+      const todo = state.todos.find((t) => t.id === id);
+      if (todo) {
+        todo.text = text;
+      }
+      localStorage.setItem("todos", JSON.stringify(state.todos)); // Persist update
+    },
+    toggleComplete: (state, action: PayloadAction<string>) => {
+      const todo = state.todos.find((t) => t.id === action.payload);
       if (todo) {
         todo.completed = !todo.completed;
       }
+      localStorage.setItem("todos", JSON.stringify(state.todos)); // Persist completion status
+    },
+    reorderTodos: (state, action: PayloadAction<Todo[]>) => {
+      state.todos = action.payload;
+      localStorage.setItem("todos", JSON.stringify(state.todos));
     },
   },
 });
 
-export const { addTodo, removeTodo, toggleTodo } = todoSlice.actions;
-
+export const { addTodo, removeTodo, updateTodo, toggleComplete, reorderTodos } =
+  todoSlice.actions;
 export default todoSlice.reducer;
