@@ -1,50 +1,87 @@
-# React + TypeScript + Vite
+# 📝 Redux Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and responsive **Todo App** built with **React, Redux Toolkit, and TypeScript**.
 
-Currently, two official plugins are available:
+🚀 **Live Demo:** [todo.vishvam.dev](https://todo.vishvam.dev)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📦 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+✅ Add, Edit, Delete Todos
+✅ Drag & Drop to Reorder Todos
+✅ Filter by Status (All, Completed, Pending)
+✅ Search Todos 🔍
+✅ Dark Mode Support 🌙 (Under development)
+✅ Local Storage Persistence
+✅ Fully Responsive UI
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🛠️ Setup & Run Locally
+
+### 1️⃣ Clone the Repository
+
+```bash
+$ git clone https://github.com/0xvish/redux-todo-app.git
+$ cd redux-todo-app
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 2️⃣ Install Dependencies
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+$ bun install  # or yarn install or npm install
 ```
+
+### 3️⃣ Start the Development Server
+
+```bash
+$ bun run dev  # or yarn dev or npm dev
+```
+
+### 4️⃣ Open in Browser 🌐
+
+Your app will be live at **http://localhost:5173**
+
+---
+
+## 🔧 Available Scripts
+
+🚀 **Run the app:**
+
+```bash
+bun run dev  # Start development server
+```
+
+🛠️ **Build for production:**
+
+```bash
+bun run build  # Create optimized production build
+```
+
+---
+
+## 🌍 Deployment
+
+The app is **deployed at:** [todo.vishvam.dev](https://todo.vishvam.dev)
+To deploy your own instance:
+
+```bash
+bun run build  # Builds production assets
+```
+
+Then deploy using **Vercel, Netlify, or any static hosting provider**.
+
+---
+
+## 👨‍💻 Contributing
+
+Feel free to **fork** the repo and open a **pull request**. PRs are welcome! 🚀
+
+📢 **Issues?** Report them [here](https://github.com/0xvish/redux-todo-app/issues).
+
+---
+
+## 📜 License
+
+MIT License © 2025 [Vishvam Moliya](https://vishvam.dev)
